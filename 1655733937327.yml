@@ -1,0 +1,65 @@
+proxies:
+  - name: AWS
+    server: 13.212.78.101
+    port: 10484
+    type: ss
+    cipher: aes-256-gcm
+    password: zVDVbtpt3tIOIyEx
+    udp: true
+  - name: AZJP
+    server: kftjnpjyoq.japaneast.cloudapp.azure.com
+    port: 41354
+    type: ss
+    cipher: aes-256-gcm
+    password: zVDVbtpt3tIOIyEx
+    udp: true
+  - name: AZJP2
+    server: kftjnpjyoq.japaneast.cloudapp.azure.com
+    port: 41355
+    type: ss
+    cipher: aes-256-gcm
+    password: zVDVbtpt3tIOIyEx
+    udp: true
+  - name: AZJP3
+    server: kftjnpjyoq.japaneast.cloudapp.azure.com
+    port: 41356
+    type: ss
+    cipher: aes-256-gcm
+    password: zVDVbtpt3tIOIyEx
+    udp: true
+  - name: 甲骨文
+    server: 168.138.173.36
+    port: 10484
+    type: ss
+    cipher: aes-256-gcm
+    password: zVDVbtpt3tIOIyEx
+    udp: true
+  - name: 甲骨文2
+    server: 138.2.77.70
+    port: 10484
+    type: ss
+    cipher: aes-256-gcm
+    password: zVDVbtpt3tIOIyEx
+    udp: true
+  - name: 甲骨文3
+    server: 129.150.49.143
+    port: 10484
+    type: ss
+    cipher: aes-256-gcm
+    password: zVDVbtpt3tIOIyEx
+    udp: true
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:
+      - AWS
+      - AZJP
+      - AZJP2
+      - AZJP3
+      - 甲骨文
+      - 甲骨文2
+      - 甲骨文3
+rules:
+  - DOMAIN-KEYWORD,hostloc,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,Proxy
